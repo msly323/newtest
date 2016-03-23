@@ -21,7 +21,8 @@ def hello():
 @app.route('/bullshit', methods = ['POST'])
 def bullshit():
      if request.method == 'POST':
-        return request.form.get("text")
+        channelName = request.form.get("channel_name")
+        return request.form.get("text") + channelName
      return 'Hello World'
 
 
