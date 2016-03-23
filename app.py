@@ -7,12 +7,12 @@ SECRET_KEY = 'a secret key'
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-
+    
 @app.route('/')
 def index():
     return 'Index Page'
 
-@app.route('/hello')
+@app.route('/hello', methods = ['GET', 'POST'])
 def hello():
     return 'Hello World'
 if __name__ == '__main__':
