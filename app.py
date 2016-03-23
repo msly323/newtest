@@ -33,15 +33,21 @@ def hello_monkey():
     # slack.channels.join(user_channel)
 
     # slack.chat.post_message('#general', 'Hello fellow slackers!')
-    slack.chat.post_message('#general', from_number)
+   # slack.chat.post_message('#general', from_number)
     #slack.chat.post_message(user_channel, 'Hello fellow slackers!')
 
     ###
 
     resp = twilio.twiml.Response()
+    resp.say("Hello Monkey")
+ 
+    return str(resp)
+
+
+#    resp = twilio.twiml.Response()
    # resp.message(message)
 
-    return str(resp)
+ #   return str(resp)
 
 if __name__ == "__main__":
     app.run(debug=True)
