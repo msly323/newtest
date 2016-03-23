@@ -12,14 +12,17 @@ app.config.from_object(__name__)
 def index():
     return 'Index Page'
 
-@app.route('/hello', methods = ['GET', 'POST'])
-def hello():
-     if request.method == 'POST':
-        return "Hello"
-     return 'Hello World'
+# @app.route('/hello', methods = ['GET', 'POST'])
+# def hello():
+#      if request.method == 'POST':
+#         return "Hello"
+#      return 'Hello World'
 
 @app.route('/bullshit', methods = ['POST'])
 def bullshit():
+    #this method will send a message back to the sender in slack
+    #the message will be whatever they sent plus the name of the channel
+    #for example /bullshit fuck will return fucknonumber on the channel chat
      if request.method == 'POST':
         channelName = request.form.get("channel_name")
         return request.form.get("text") + channelName
