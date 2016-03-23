@@ -21,7 +21,7 @@ def hello():
 @app.route('/bullshit', methods = ['POST'])
 def bullshit():
      if request.method == 'POST':
-        return "Hello"
+        return request.POST['username']
      return 'Hello World'
 
 
