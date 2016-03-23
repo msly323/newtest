@@ -12,7 +12,7 @@ app.config.from_object(__name__)
 def index():
     return 'Index Page'
 
-@app.route('/hello', methods = ['GET', 'POST'])
+@app.route('/hello', methods = ['POST'])
 def hello():
     return 'Hello World'
 if __name__ == '__main__':
