@@ -24,6 +24,7 @@ def bullshit():
     #the message will be whatever they sent plus the name of the channel
     #for example /bullshit fuck will return fucknonumber on the channel chat
      #channels.archive('new')
+     print("hello")
      if request.method == 'POST':
         channelName = request.form.get("channel_name")
         
