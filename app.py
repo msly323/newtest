@@ -7,12 +7,14 @@ SECRET_KEY = 'a secret key'
 app = Flask(__name__)
 app.config.from_object(__name__)
 slack = Slacker('xoxp-28038241029-28038195079-28266163220-166a67df32')
-print(slack.channels.get_channel_id('new'))
+#print(slack.channels.get_channel_id('new'))
 #slack.channels.create("new3")
 #slack.channels.unarchive("new2")
+
+unArch = slack.channels.get_channel_id('new')
+infoArch = slack.channels.info(unArch)
+
 @app.route('/')
-
-
 def index():
     return 'Index Page'
 
@@ -37,7 +39,7 @@ def bullshit():
         #new code
 
         unArch = slack.channels.get_channel_id('new')
-         infoArch = slack.channels.info(unArch)
+        infoArch = slack.channels.info(unArch)
         # jsonInfo = json.dumps(infoArch.body)
         # parsedJson = json.loads(jsonInfo)
         # print(parsedJson['channel']['is_archived'])
