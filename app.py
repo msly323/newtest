@@ -7,7 +7,7 @@ SECRET_KEY = 'a secret key'
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-    
+print("hello")
 @app.route('/')
 def index():
     return 'Index Page'
@@ -28,7 +28,7 @@ def bullshit():
      if request.method == 'POST':
         channelName = request.form.get("channel_name")
         #slacker.channels.get_channel_id(channelName)   
-        print("hello")
+        
         print(channelName)
         slacker.channels.info(channelName)
         return request.form.get("text") + channelName 
