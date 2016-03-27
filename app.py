@@ -1,4 +1,3 @@
-
 from flask import Flask, request, redirect, session
 import twilio.twiml
 from slacker import Slacker
@@ -43,4 +42,4 @@ def bullshit():
      
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True)   
