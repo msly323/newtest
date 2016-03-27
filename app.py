@@ -36,7 +36,7 @@ def bullshit():
 
         #new code
 
-        # unArch = slack.channels.get_channel_id('new')
+         unArch = slack.channels.get_channel_id('new')
         # infoArch = slack.channels.info(unArch)
         # jsonInfo = json.dumps(infoArch.body)
         # parsedJson = json.loads(jsonInfo)
