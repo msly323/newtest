@@ -27,13 +27,6 @@ slack = Slacker('xoxp-28038241029-28038195079-28266163220-166a67df32')
 #slack.channels.create("new3")
 #slack.channels.unarchive("new2")
 @app.route('/')
-
-
-def set_default(obj):
-    if isinstance(obj, set):
-        return list(obj)
-    raise TypeError
-
 def index():
     return 'Index Page'
 
@@ -46,14 +39,7 @@ def bullshit():
 
      if request.method == 'POST':
         channelName = request.form.get("channel_name")
-        # 
-        
-        # print(channelName)
-        # #slacker.channels.info(channelName)
-        # print(slack.channels.get_channel_id('general'))
-        # print(slack.channels.get_channel_id('new'))
-        # genID = slack.channels.get_channel_id('general')
-        # newID = slack.channels.get_channel_id('new')
+    
         newID = slack.channels.get_channel_id('new3')
         print(newID)
       #  slack.channels.unarchive(newID)
