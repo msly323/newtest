@@ -27,7 +27,7 @@ def bullshit():
         channelName = request.form.get("channel_name")
         channelID = channels.get_channel_id('general')
         print("hello")
-        return request.form.get("text") + channelName + channelID
+        return request.form.get("text") + channelName 
      return 'Hello World'
 
      
