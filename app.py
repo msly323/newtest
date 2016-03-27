@@ -8,6 +8,8 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 slack = Slacker('xoxp-28038241029-28038195079-28266163220-166a67df32')
 print(slack.channels.get_channel_id('new'))
+info = slack.channels.info(newID)
+print(info)
 #slack.channels.create("new3")
 #slack.channels.unarchive("new2")
 @app.route('/')
@@ -36,7 +38,7 @@ def bullshit():
         newID = slack.channels.get_channel_id('new3')
         print(newID)
         slack.channels.unarchive(newID)
-        info = slack.channels.info(newID)
+       # info = slack.channels.info(newID)
         print(info)
         return request.form.get("text") + channelName 
      return 'Hello World'
