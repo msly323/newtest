@@ -34,6 +34,8 @@ def bullshit():
         #slacker.channels.info(channelName)
         print(slack.channels.get_channel_id('general'))
         print(slack.channels.get_channel_id('new'))
+        genID = slack.channels.get_channel_id('general')
+        newID = slack.channels.get_channel_id('new')
         slack.channels.archive("new")
         return request.form.get("text") + channelName 
      return 'Hello World'
