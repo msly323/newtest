@@ -25,7 +25,7 @@ def bullshit():
     #for example /bullshit fuck will return fucknonumber on the channel chat
      if request.method == 'POST':
         channelName = request.form.get("channel_name")
-        channelID = channels.get_channel_id('general')
+        #channelID = channels.get_channel_id('general')
         print("hello")
         return request.form.get("text") + channelName 
      return 'Hello World'
