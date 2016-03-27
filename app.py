@@ -9,7 +9,7 @@ app.config.from_object(__name__)
 slack = Slacker('xoxp-28038241029-28038195079-28266163220-166a67df32')
 print(slack.channels.get_channel_id('new'))
 #slack.channels.create("new3")
-slack.channels.unarchive("new2")
+#slack.channels.unarchive("new2")
 @app.route('/')
 
 
