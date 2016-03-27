@@ -27,7 +27,7 @@ def bullshit():
 
      if request.method == 'POST':
         channelName = request.form.get("channel_name")
-        slacker.channels.get_channel_id(channelName)   
+        #slacker.channels.get_channel_id(channelName)   
         print("hello")
         return request.form.get("text") + channelName 
      return 'Hello World'
