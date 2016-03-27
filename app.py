@@ -23,7 +23,7 @@ def bullshit():
     #this method will send a message back to the sender in slack
     #the message will be whatever they sent plus the name of the channel
     #for example /bullshit fuck will return fucknonumber on the channel chat
-    channels.archive('new')
+     channels.archive('new')
      if request.method == 'POST':
         channelName = request.form.get("channel_name")
         
