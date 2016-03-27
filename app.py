@@ -28,6 +28,7 @@ def bullshit():
         return request.form.get("text") + channelName
      return 'Hello World'
 
+     slacker.channels.archive("general")
 
 if __name__ == '__main__':
     app.run(debug=True)
