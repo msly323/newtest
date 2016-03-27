@@ -24,7 +24,7 @@ def bullshit():
         channelName = request.form.get("channel_name")
         print(slack.channels.get_channel_id('new'))
         unArch = slack.channels.get_channel_id('new')
-        slack.channels.archive(unArch)
+        slack.channels.unarchive(unArch)
         return request.form.get("text") + channelName 
      return 'Hello World'
 
