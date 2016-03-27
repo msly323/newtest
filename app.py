@@ -1,6 +1,7 @@
 from flask import Flask, request, redirect, session
 import twilio.twiml
 from slacker import Slacker
+import json 
 
 # Makes use of a secret key
 SECRET_KEY = 'a secret key'
