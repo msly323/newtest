@@ -40,7 +40,7 @@ def bullshit():
 
         unArch = slack.channels.get_channel_id('new')
         infoArch = slack.channels.info(unArch)
-        # jsonInfo = json.dumps(infoArch.body)
+        jsonInfo = json.dumps(infoArch.body)
         # parsedJson = json.loads(jsonInfo)
         # print(parsedJson['channel']['is_archived'])
 
