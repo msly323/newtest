@@ -29,6 +29,7 @@ def bullshit():
         channelName = request.form.get("channel_name")
         #slacker.channels.get_channel_id(channelName)   
         print("hello")
+        print(channelName)
         return request.form.get("text") + channelName 
      return 'Hello World'
 
