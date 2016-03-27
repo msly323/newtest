@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 
 print("hello")
+print(slacker.channels.get_channel_id('general'))
 @app.route('/')
 def index():
     return 'Index Page'
@@ -27,7 +28,7 @@ def bullshit():
 
      if request.method == 'POST':
         channelName = request.form.get("channel_name")
-        #slacker.channels.get_channel_id(channelName)   
+        # 
         
         print(channelName)
         #slacker.channels.info(channelName)
