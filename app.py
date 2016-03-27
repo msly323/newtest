@@ -30,11 +30,7 @@ def bullshit():
      #channels.archive('new')
 
      if request.method == 'POST':
-        unArch = slack.channels.get_channel_id('new')
-        infoArch = slack.channels.info(unArch)
-        jsonInfo = json.dumps(infoArch.body)
-        parsedJson = json.loads(jsonInfo)
-        print(parsedJson['channel']['is_archived'])
+      
         # channelName = request.form.get("channel_name")
         # print(slack.channels.get_channel_id('new'))
         # unArch = slack.channels.get_channel_id('new')
