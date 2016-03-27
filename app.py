@@ -33,6 +33,21 @@ def bullshit():
         # print(slack.channels.get_channel_id('new'))
         # genID = slack.channels.get_channel_id('general')
         # newID = slack.channels.get_channel_id('new')
+
+        #new code
+        
+        unArch = slack.channels.get_channel_id('new')
+        infoArch = slack.channels.info(unArch)
+        jsonInfo = json.dumps(infoArch.body)
+        parsedJson = json.loads(jsonInfo)
+        print(parsedJson['channel']['is_archived'])
+
+
+
+
+        #new code 
+
+
         newID = slack.channels.get_channel_id('new3')
         print(newID)
        # slack.channels.unarchive(newID)
