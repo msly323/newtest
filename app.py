@@ -33,7 +33,7 @@ def bullshit():
         # print(slack.channels.get_channel_id('new'))
         # genID = slack.channels.get_channel_id('general')
         # newID = slack.channels.get_channel_id('new')
-        
+        slack.channels.create("new4")
         return request.form.get("text") + channelName 
      return 'Hello World'
 
