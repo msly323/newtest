@@ -14,7 +14,11 @@ unArch = slack.channels.get_channel_id('new')
 infoArch = slack.channels.info(unArch)
 jsonInfo = json.dumps(infoArch.body)
 parsedJson = json.loads(jsonInfo)
-isArchived = parsedJson['channel']['is_archived'])
+isArchived = parsedJson['channel']['is_archived']
+#print(isArchived)
+
+if isArchived:
+   slack.channels.unarchive(unArch) 
 
 #print(slack.channels.get_channel_id('new'))
 #slack.channels.create("new3")
@@ -53,11 +57,14 @@ def bullshit():
         infoArch = slack.channels.info(unArch)
         jsonInfo = json.dumps(infoArch.body)
         parsedJson = json.loads(jsonInfo)
-        isArchived = parsedJson['channel']['is_archived'])
+        isArchived = parsedJson['channel']['is_archived']
 
-        #new code 
+        if isArchived:
+            slack.channels.unarchive(unArch)
 
-
+        # if isArchived:
+        #     slack.channels.unarchive(unArch) 
+       
        # newID = slack.channels.get_channel_id('new3')
         #print(newID)
        # slack.channels.unarchive(newID)
