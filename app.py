@@ -36,7 +36,7 @@ def bullshit():
 
         #new code
 
-         unArch = slack.channels.get_channel_id('new')
+        unArch = slack.channels.get_channel_id('new')
         # infoArch = slack.channels.info(unArch)
         # jsonInfo = json.dumps(infoArch.body)
         # parsedJson = json.loads(jsonInfo)
@@ -45,8 +45,8 @@ def bullshit():
         #new code 
 
 
-        newID = slack.channels.get_channel_id('new3')
-        print(newID)
+       # newID = slack.channels.get_channel_id('new3')
+        #print(newID)
        # slack.channels.unarchive(newID)
         return request.form.get("text") + channelName 
      return 'Hello World'
