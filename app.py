@@ -25,7 +25,7 @@ def bullshit():
     #for example /bullshit fuck will return fucknonumber on the channel chat
      if request.method == 'POST':
         channelName = request.form.get("channel_name")
-        slacker.channels.archive("general")
+       # slacker.channels.archive("general")
         return request.form.get("text") + channelName
      return 'Hello World'
 
