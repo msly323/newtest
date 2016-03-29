@@ -1,77 +1,26 @@
-from flask import Flask, request, redirect, session
-import twilio.twiml
-from slacker import Slacker
-import json 
+# Download the twilio-python library from http://twilio.com/docs/libraries
+from twilio.rest import TwilioRestClient
+ 
+import signal
 
-# Makes use of a secret key
-SECRET_KEY = 'a secret key'
-app = Flask(__name__)
-app.config.from_object(__name__)
-slack = Slacker('xoxp-28038241029-28038195079-28266163220-166a67df32')
+# Find these values at https://twilio.com/user/account
+account_sid = "AC733d141e59351adbab06d66eb8253347"
+auth_token = "0019a7152652c5176f9fd3f8d7f91f40"
+client = TwilioRestClient(account_sid, auth_token)
 
 
-unArch = slack.channels.get_channel_id('new')
-infoArch = slack.channels.info(unArch)
-jsonInfo = json.dumps(infoArch.body)
-parsedJson = json.loads(jsonInfo)
-isArchived = parsedJson['channel']['is_archived']
-#print(isArchived)
+n = 100
 
-if isArchived:
-   slack.channels.unarchive(unArch) 
+def inbound_message(n): 
+    print("hello")
+    if n==0:
+        return 0
+    else:     
+        signal.alarm(20) 
+        message = client.messages.create(to="+18448168960", from_="+14246662592",
+                                     body="Hello there!")
+        return inbound_message(n-1)
 
-#print(slack.channels.get_channel_id('new'))
-#slack.channels.create("new3")
-#slack.channels.unarchive("new2")
 
-# unArch = slack.channels.get_channel_id('new')
-# infoArch = slack.channels.info(unArch)
-# jsonInfo = json.dumps(infoArch.body)
-# parsedJson = json.loads(jsonInfo)
+inbound_message(n)
 
-@app.route('/')
-def index():
-    return 'Index Page'
-
-@app.route('/bullshit', methods = ['POST'])
-def bullshit():
-    #this method will send a message back to the sender in slack
-    #the message will be whatever they sent plus the name of the channel
-    #for example /bullshit fuck will return fucknonumber on the channel chat
-     #channels.archive('new')
-
-     if request.method == 'POST':
-        channelName = request.form.get("channel_name")
-        # 
-        
-        # print(channelName)
-        # #slacker.channels.info(channelName)
-        # print(slack.channels.get_channel_id('general'))
-        # print(slack.channels.get_channel_id('new'))
-        # genID = slack.channels.get_channel_id('general')
-        # newID = slack.channels.get_channel_id('new')
-
-        #new code
-
-        unArch = slack.channels.get_channel_id('new')
-        infoArch = slack.channels.info(unArch)
-        jsonInfo = json.dumps(infoArch.body)
-        parsedJson = json.loads(jsonInfo)
-        isArchived = parsedJson['channel']['is_archived']
-
-        if isArchived:
-            slack.channels.unarchive(unArch)
-
-        # if isArchived:
-        #     slack.channels.unarchive(unArch) 
-       
-       # newID = slack.channels.get_channel_id('new3')
-        #print(newID)
-       # slack.channels.unarchive(newID)
-        return request.form.get("text") + channelName 
-     return 'Hello World'
-
-     
-
-if __name__ == '__main__':
-    app.run(debug=True)   
